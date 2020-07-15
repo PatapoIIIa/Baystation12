@@ -106,19 +106,21 @@ var/list/admin_verbs_fun = list(
 	/client/proc/cmd_admin_dress, //INF WAS /datum/admins/proc/cmd_admin_dress,
 	/client/proc/cmd_admin_gib_self,
 	/client/proc/drop_bomb,
-//INF unused	/client/proc/everyone_random,
+	/client/proc/everyone_random,
 	/client/proc/cinematic,
 	/datum/admins/proc/toggle_space_ninja,
 	/client/proc/cmd_admin_add_freeform_ai_law,
 	/client/proc/cmd_admin_add_random_ai_law,
 	/client/proc/toggle_random_events,
-//INF unused	/client/proc/editappear,
+	/client/proc/editappear,
 	/client/proc/roll_dices,
 	/datum/admins/proc/call_supply_drop,
 	/datum/admins/proc/call_drop_pod,
-//INF unused	/client/proc/create_dungeon,
+	/client/proc/create_dungeon,
 	/datum/admins/proc/ai_hologram_set,
 //[INF],
+	/datum/admins/proc/create_new_skybox_data,
+	/datum/admins/proc/select_and_apply_skybox_data,
 	/datum/admins/proc/intercom,		//send a fake intercom message, like an arrivals announcement,
 	/datum/admins/proc/intercom_convo,	//send a fake intercom conversation, like an ATC exchange,
 	/datum/admins/proc/mp_panel,
@@ -135,11 +137,14 @@ var/list/admin_verbs_spawn = list(
 	/datum/admins/proc/check_custom_items,
 	/datum/admins/proc/spawn_plant,
 	/datum/admins/proc/spawn_atom,		// allows us to spawn instances,
-	/client/proc/game_panel, //INF,
 	/client/proc/respawn_character,
-	/client/proc/respawn_as_self, //INF,
 	/client/proc/spawn_chemdisp_cartridge,
-	/datum/admins/proc/mass_debug_closet_icons
+	/datum/admins/proc/mass_debug_closet_icons,
+//[INF],
+	/client/proc/game_panel,
+	/client/proc/cmd_offer_to_ghosts_to_be_somebody,
+	/client/proc/respawn_as_self,
+//[/INF],
 	)
 var/list/admin_verbs_server = list(
 	/datum/admins/proc/capture_map_part,
@@ -332,12 +337,12 @@ var/list/admin_verbs_mod = list(
 )
 //[INF]
 var/list/admin_verbs_xeno = list(
-	/client/proc/cmd_admin_pm_context,
-	/client/proc/cmd_admin_pm_panel,
+//	/client/proc/cmd_admin_pm_context,
+//	/client/proc/cmd_admin_pm_panel,
+//	/client/proc/admin_ghost,
+//	/datum/admins/proc/show_player_info,
 	/datum/admins/proc/PlayerNotes,
-	/client/proc/admin_ghost,
-//MOVED2DEBUG_VERB_WHILE_FIXING	/datum/admins/proc/xeno_whitelist_panel
-//	/datum/admins/proc/show_player_info
+	/datum/admins/proc/xeno_whitelist_panel
 )
 //[/INF]
 /client/proc/add_admin_verbs()

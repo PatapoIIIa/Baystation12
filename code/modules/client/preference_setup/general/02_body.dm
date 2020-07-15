@@ -600,6 +600,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				limb =        BP_CHEST
 				third_limb =  BP_GROIN
 				choice_options = list("Normal","Prosthesis")
+//[INF]
+				if((!whitelist_lookup(SPECIES_FBP, user.ckey) && current_species.name != SPECIES_IPC) && !user.client.holder)
+					choice_options -= "Prosthesis"
+//[/INF]
 
 		var/new_state = input(user, "Выберите состоянии конечности:") as null|anything in choice_options
 		if(!new_state || !CanUseTopic(user)) return TOPIC_NOACTION

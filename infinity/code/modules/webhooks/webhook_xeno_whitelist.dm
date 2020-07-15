@@ -48,7 +48,7 @@
 	for(var/ckey in grant)
 		var/list/check = grant[ckey]
 		for(var/race in check)
-			B += "++[race]"
+			B += "+ [race]"
 		A[ckey] = B.Copy()
 		B.Cut()
 	grant = A.Copy()
@@ -57,7 +57,7 @@
 	for(var/ckey in revoke)
 		var/list/check = revoke[ckey]
 		for(var/race in check)
-			B += "--[race]"
+			B += "- [race]"
 		A[ckey] = B.Copy()
 		B.Cut()
 	revoke = A.Copy()
@@ -68,16 +68,15 @@
 		return
 	var/list/fields = list()
 	unite = sortAssoc(unite)		//sorting by ckey
-	for(var/ckey in unite)
-		var/list/check = unite[ckey]
+	for(var/ckey2 in unite)
+		var/list/check = unite[ckey2]
 		check = sortList(check)	//sorting by race
-		var/list/text = list()
-		text += "yml"
+		var/list/text = list("diff")
 		for(var/race in check)
 			text += race
-		fields += list(list(
-			"name" = ckey,
-			"value" = "```[jointext(text, "\n\t")]```"
+		fields.Add(list(
+			"name" = ckey2,
+			"value" = "```[jointext(text, "\n")]```"
 		))
 	if(fields && fields.len)
 		desc["fields"] = list(fields)
